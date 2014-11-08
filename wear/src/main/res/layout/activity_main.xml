@@ -6,4 +6,18 @@
     android:layout_width="match_parent" android:layout_height="match_parent"
     app:rectLayout="@layout/rect_activity_main" app:roundLayout="@layout/round_activity_main"
     tools:context=".MainActivity"
-    tools:deviceIds="wear"></android.support.wearable.view.WatchViewStub>
+    tools:deviceIds="wear">
+
+
+    <Button
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:text="@string/ready"
+        android:id="@+id/readybutton"
+        android:layout_row="1"
+        android:layout_column="0"
+        android:visibility="visible"
+        android:background="@android:color/transparent"/>
+
+
+</android.support.wearable.view.WatchViewStub>
