@@ -19,15 +19,6 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="com.hackathon.presenta.step1"
-            android:label="@string/title_activity_step1" >
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
-        <activity
             android:name="com.hackathon.presenta.step_1"
             android:label="@string/title_activity_step_1" >
             <intent-filter>
