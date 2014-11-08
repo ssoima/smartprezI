@@ -16,6 +16,10 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name="com.hackathon.presenta.SlideView"
+            android:label="@string/title_activity_slide_view" >
+        </activity>
     </application>
 
 </manifest>

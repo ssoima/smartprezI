@@ -1,0 +1,89 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical"
+    tools:context=".MainActivity"
+    android:background="#f6f6f6">
+
+
+    <ImageView
+        android:id="@+id/imageHeader"
+        style="@style/HeaderPicture"
+        android:src="@drawable/header1" />
+
+
+    <TableLayout
+        android:layout_width="fill_parent"
+        android:layout_height="200dp"
+        android:layout_margin="3dp">
+        <TableRow>
+                <HorizontalScrollView
+                    android:id="@+id/hor_scroll_view"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    >
+                    <LinearLayout
+                        android:id="@+id/gallery"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal" >
+                        <LinearLayout
+                            style="@style/slideGrp">
+                        <ImageView
+                            android:id="@+id/image1"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            style="@style/folie"
+                            android:src="@drawable/folie1"
+                            android:onClick="biggerView"/>
+
+
+                        </LinearLayout>
+                        <ImageView
+                            android:id="@+id/image2"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            style="@style/folie"
+                            android:src="@drawable/folie1"
+                            android:onClick="biggerView"/>
+                        <ImageView
+                            android:id="@+id/image3"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            style="@style/folie"
+                            android:src="@drawable/folie1"
+                            android:onClick="biggerView"/>
+                        <ImageView
+                            android:id="@+id/image4"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            style="@style/folie"
+                            android:src="@drawable/folie1"
+                            android:onClick="biggerView"/>
+                        <ImageView
+                            android:id="@+id/image5"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            style="@style/folie"
+                            android:src="@drawable/folie1"
+                            android:onClick="biggerView"/>
+                        <ImageView
+                            android:id="@+id/image6"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            style="@style/folie"
+                            android:src="@drawable/folie1"
+                            android:onClick="biggerView"/>
+                        <ImageView
+                            android:id="@+id/image7"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            style="@style/folie"
+                            android:src="@drawable/folie1"
+                            android:onClick="biggerView"/>
+                    </LinearLayout>
+                </HorizontalScrollView>
+        </TableRow>
+    </TableLayout>
+</LinearLayout>

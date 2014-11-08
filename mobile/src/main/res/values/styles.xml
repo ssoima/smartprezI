@@ -29,5 +29,16 @@
         <item name="android:layout_height">wrap_content</item>
         <item name="android:adjustViewBounds">true</item>
     </style>
+    <style name="folie">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:adjustViewBounds">true</item>
+        <item name="android:padding">10dp</item>
+    </style>
+    <style name="slideGrp">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:adjustViewBounds">true</item>
+    </style>
 
 </resources>
