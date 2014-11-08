@@ -4,5 +4,7 @@
     <string name="app_name">Presenta</string>
     <string name="hello_round">Hello Round World!</string>
     <string name="hello_square">Hello Square World!</string>
+    <string name="ready">Ready?</string>
+    <string name="title_activity_step_1">step_1</string>
 
 </resources>
