@@ -74,17 +74,26 @@
             </RelativeLayout>
 
         </TableRow>
-
         <TableRow>
-
-            <TextView android:text="@string/hello_world" android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/textView" />
-
-            <Button
+            <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:orientation="vertical"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/hello_world" />
+                android:layout_height="80dp"
+                android:layout_weight="1">
+                <ImageView
+                    android:id="@+id/imageBsp3"
+                    style="@style/addButton"
+                    android:layout_centerHorizontal="true"
+                    android:layout_alignParentBottom="true"
+                    android:layout_alignParentEnd="true"
+                    android:src="@drawable/add1" />
+                <Button
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    android:layout_centerHorizontal="true"
+                    android:layout_alignParentBottom="true"
+                    android:layout_alignParentEnd="true"/>
+            </RelativeLayout>
         </TableRow>
 
     </TableLayout>
