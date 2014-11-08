@@ -4,15 +4,14 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity" tools:deviceIds="wear_square">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
+    <Button
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
         android:text="@string/ready"
-        android:id="@+id/textView3"
-        android:typeface="monospace"
-        android:layout_centerVertical="true"
-        android:layout_centerHorizontal="true"
-        android:layout_gravity="center" />
+        android:id="@+id/button"
+        android:layout_row="1"
+        android:layout_column="0"
+        android:visibility="visible"
+        android:background="@android:color/transparent"/>
 
 </GridLayout>
