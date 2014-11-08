@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<<<<<<< HEAD
+<module external.linked.project.path="$MODULE_DIR$" external.root.project.path="$MODULE_DIR$/.." external.system.id="GRADLE" external.system.module.group="presenta" external.system.module.version="unspecified" type="JAVA_MODULE" version="4">
+=======
 <module external.linked.project.path="$MODULE_DIR$" external.root.project.path="$MODULE_DIR$/.." external.system.id="GRADLE" external.system.module.group="smartprezI" external.system.module.version="unspecified" type="JAVA_MODULE" version="4">
+>>>>>>> 535dffdce6461153bafb9bb63661a716f5b11fe8
   <component name="FacetManager">
     <facet type="android-gradle" name="Android-Gradle">
       <configuration>
@@ -17,7 +21,10 @@
         <option name="ALLOW_USER_CONFIGURATION" value="false" />
         <option name="MANIFEST_FILE_RELATIVE_PATH" value="/src/main/AndroidManifest.xml" />
         <option name="RES_FOLDER_RELATIVE_PATH" value="/src/main/res" />
+<<<<<<< HEAD
+=======
         <option name="RES_FOLDERS_RELATIVE_PATH" value="file://$MODULE_DIR$/src/main/res" />
+>>>>>>> 535dffdce6461153bafb9bb63661a716f5b11fe8
         <option name="ASSETS_FOLDER_RELATIVE_PATH" value="/src/main/assets" />
       </configuration>
     </facet>
@@ -80,10 +87,17 @@
     </content>
     <orderEntry type="jdk" jdkName="Android API 20 Platform" jdkType="Android SDK" />
     <orderEntry type="sourceFolder" forTests="false" />
+<<<<<<< HEAD
+    <orderEntry type="library" exported="" name="support-v4-20.0.0" level="project" />
+    <orderEntry type="library" exported="" name="support-v13-20.0.0" level="project" />
+    <orderEntry type="library" exported="" name="play-services-wearable-6.1.71" level="project" />
+    <orderEntry type="library" exported="" name="support-annotations-20.0.0" level="project" />
+=======
     <orderEntry type="library" exported="" name="support-v13-20.0.0" level="project" />
     <orderEntry type="library" exported="" name="play-services-wearable-6.1.71" level="project" />
     <orderEntry type="library" exported="" name="support-annotations-20.0.0" level="project" />
     <orderEntry type="library" exported="" name="support-v4-20.0.0" level="project" />
+>>>>>>> 535dffdce6461153bafb9bb63661a716f5b11fe8
     <orderEntry type="library" exported="" name="wearable-1.0.0" level="project" />
   </component>
 </module>
