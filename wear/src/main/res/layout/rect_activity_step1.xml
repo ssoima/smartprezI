@@ -44,14 +44,9 @@
             android:layout_height="wrap_content"
             android:inputType="textEmailAddress"
             android:ems="10"
-            android:id="@+id/editText"
-            android:layout_gravity="right|bottom" />
-    </FrameLayout>
+            android:inputType="text
 
-    <FrameLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
+        ="center_horizontal"
         android:layout_weight="0.23"
         android:id="@+id/">
 
