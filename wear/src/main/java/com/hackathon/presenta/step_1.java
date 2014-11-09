@@ -1,6 +1,7 @@
 package com.hackathon.presenta;
 
 import android.app.Activity;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.wearable.view.WatchViewStub;
@@ -23,6 +24,7 @@ public class step_1 extends Activity {
     private ArrayList<Keyword> keywords;
     private int actualkeyword;
     private int ct;
+    private float timeOver;
 
 
 
@@ -31,21 +33,35 @@ public class step_1 extends Activity {
         public void run() {
             if(c.getSeconds() > 0) {
                 c.timeElapse();
+               // mCountdownView.setText(c.toString());
+                timeOver = ct * c.getSeconds() / frameWidth * 100;
+                background.setMinimumWidth(frameWidth - ct*c.getSeconds());
                 mCountdownView.setText(c.toString());
+                if(timeOver > 90 ) {
+                    background.setBackgroundColor(Color.rgb(243, 116, 90)); //rot
+                } else if(timeOver > 80) {
+                    background.setBackgroundColor(Color.rgb(254, 142, 52)); //orange2
+                } else if(timeOver > 60) {
+                    background.setBackgroundColor(Color.rgb(254, 170, 103)); //orange1
+                } else if(timeOver > 40) {
+                    background.setBackgroundColor(Color.rgb(254, 245, 103)); //gelb
+                } else {
+                    background.setBackgroundColor(Color.rgb(93, 204, 78)); //gruen
+                }
                 mHandler.postDelayed(countdown, 1000);
-                if (c.getSeconds()!=0)
-                    background.setMinimumWidth(frameWidth - ct*c.getSeconds());
             }
             else
                 if (keywords.size()>actualkeyword+1) {
                     actualkeyword++;
                     c = keywords.get(actualkeyword);
                     keywordView.setText(c.getKeyword());
-
-                    c.timeElapse();
+                    ct = frameWidth / c.getSeconds();
                     mCountdownView.setText(c.toString());
                     mHandler.postDelayed(countdown, 1000);
                     background.setMinimumWidth(frameWidth - ct*c.getSeconds());
+                } else {
+
+                    //SWITCH TO FINISH SLIDE
                 }
 
 
@@ -64,7 +80,7 @@ public class step_1 extends Activity {
                 keywordView = (TextView) stub.findViewById(R.id.keywordView);
                 background = (FrameLayout) stub.findViewById(R.id.background);
                 mCountdownView = (TextView) stub.findViewById(R.id.countdownView);
-                FrameLayout fu = (FrameLayout) stub.findViewById(R.id.fullFrame);
+                fullFrame = (FrameLayout) stub.findViewById(R.id.fullFrame);
                 frameWidth = 280;  //fu.getWidth();
                 keywords = new ArrayList<Keyword>() ;
 
