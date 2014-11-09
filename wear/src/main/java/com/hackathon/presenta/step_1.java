@@ -1,10 +1,12 @@
 package com.hackathon.presenta;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.wearable.view.WatchViewStub;
+import android.view.WindowManager;
 import android.widget.FrameLayout;
 import android.widget.TextView;
 
@@ -23,7 +25,7 @@ public class step_1 extends Activity {
     private int frameWidth;
     private ArrayList<Keyword> keywords;
     private int actualkeyword;
-    private int ct;
+    private float ct;
     private float timeOver;
 
 
@@ -33,20 +35,17 @@ public class step_1 extends Activity {
         public void run() {
             if(c.getSeconds() > 0) {
                 c.timeElapse();
-               // mCountdownView.setText(c.toString());
-                timeOver = ct * c.getSeconds() / frameWidth * 100;
-                background.setMinimumWidth(frameWidth - ct*c.getSeconds());
+                timeOver = (ct * c.getSeconds() / (float) frameWidth) * 100;
+                background.setMinimumWidth((int) (frameWidth - ct*c.getSeconds()));
                 mCountdownView.setText(c.toString());
-                if(timeOver > 90 ) {
-                    background.setBackgroundColor(Color.rgb(243, 116, 90)); //rot
-                } else if(timeOver > 80) {
-                    background.setBackgroundColor(Color.rgb(254, 142, 52)); //orange2
-                } else if(timeOver > 60) {
-                    background.setBackgroundColor(Color.rgb(254, 170, 103)); //orange1
-                } else if(timeOver > 40) {
-                    background.setBackgroundColor(Color.rgb(254, 245, 103)); //gelb
+                if(timeOver > 75 ) {
+                    background.setBackgroundColor(Color.rgb(83, 106, 11)); //gruen
+                } else if(timeOver > 50) {
+                    background.setBackgroundColor(Color.rgb(142, 140, 10)); //gelb
+                } else if(timeOver > 25) {
+                    background.setBackgroundColor(Color.rgb(147, 109, 38)); //orange1
                 } else {
-                    background.setBackgroundColor(Color.rgb(93, 204, 78)); //gruen
+                    background.setBackgroundColor(Color.rgb(128, 38, 44)); //rot
                 }
                 mHandler.postDelayed(countdown, 1000);
             }
@@ -58,10 +57,11 @@ public class step_1 extends Activity {
                     ct = frameWidth / c.getSeconds();
                     mCountdownView.setText(c.toString());
                     mHandler.postDelayed(countdown, 1000);
-                    background.setMinimumWidth(frameWidth - ct*c.getSeconds());
+                    background.setMinimumWidth((int) (frameWidth - ct*c.getSeconds()));
                 } else {
 
-                    //SWITCH TO FINISH SLIDE
+                    Intent k = new Intent(step_1.this, FinalScreen.class);
+                    startActivity(k);
                 }
 
 
@@ -72,6 +72,7 @@ public class step_1 extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_step_1);
+        getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
         final WatchViewStub stub = (WatchViewStub) findViewById(R.id.watch_view_stub);
         stub.setOnLayoutInflatedListener(new WatchViewStub.OnLayoutInflatedListener() {
             @Override
@@ -93,7 +94,8 @@ public class step_1 extends Activity {
 
                 c = keywords.get(actualkeyword);
                 keywordView.setText(c.getKeyword());
-                ct=280/c.getSeconds();
+                ct = (float) (280.0 / c.getSeconds());
+                mCountdownView.setText(c.toString());
                 mHandler.postDelayed(countdown, 1000);
             }
         });

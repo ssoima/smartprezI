@@ -27,7 +27,7 @@ public class Keyword {
 
     @Override
     public String toString() {
-        return Integer.toString(seconds/60) + ":" + ("00" + Integer.toString(seconds%60)).substring(Integer.toString(seconds%60).length());
+        return Integer.toString((int) Math.floor(seconds/60)) + ":" + ("00" + Integer.toString(seconds%60)).substring(Integer.toString(seconds%60).length());
     }
 
 

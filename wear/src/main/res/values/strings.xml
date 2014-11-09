@@ -6,5 +6,7 @@
     <string name="hello_square">Hello Square World!</string>
     <string name="ready">Ready?</string>
     <string name="title_activity_step_1">step_1</string>
+    <string name="title_activity_final_screen">FinalScreen</string>
+    <string name="finale">You did it! ;)</string>
 
 </resources>
