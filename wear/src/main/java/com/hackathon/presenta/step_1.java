@@ -23,7 +23,7 @@ public class step_1 extends Activity{
     private TextView keywordView;
     private TextView mTextView;
     private TextView mCountdownView;
-
+    private TextView pageCounter;
     private Handler mHandler = new Handler();
     private Keyword c;
     private FrameLayout background;
@@ -46,10 +46,13 @@ public class step_1 extends Activity{
             if (changePage) {
                 actualpage++;
                 actualkeyword=0;
-                keywords = pages.get(actualpage).getPage();
-                c = keywords.get(actualkeyword);
-                keywordView.setText(c.getKeyword());
-                ct=280/c.getSeconds();
+                if(pages.size() > actualpage) {
+                    keywords = pages.get(actualpage).getPage();
+                    pageCounter.setText((actualpage + 1) + "/" + pages.size());
+                    c = keywords.get(actualkeyword);
+                    keywordView.setText(c.getKeyword());
+                    ct=280/c.getSeconds();
+                }
                 changePage=false;
             }
 
@@ -70,7 +73,7 @@ public class step_1 extends Activity{
                 mHandler.postDelayed(countdown, 1000);
             }
             else
-                if (keywords.size()>actualkeyword+1) {
+                if (keywords.size()>actualkeyword+1 && actualpage < pages.size()) {
                     actualkeyword++;
                     c = keywords.get(actualkeyword);
                     keywordView.setText(c.getKeyword());
@@ -79,10 +82,13 @@ public class step_1 extends Activity{
                     mHandler.postDelayed(countdown, 1000);
                     background.setMinimumWidth((int) (frameWidth - ct*c.getSeconds()));
                 } else {
-                    if(actualpage == pages.size()-1) {
+                    if (actualpage >= pages.size() - 1) {
                         Intent k = new Intent(step_1.this, FinalScreen.class);
                         startActivity(k);
+                    } else {
+                        mHandler.postDelayed(countdown, 1000);
                     }
+                }
         }
     };
 
@@ -97,6 +103,7 @@ public class step_1 extends Activity{
             public void onLayoutInflated(WatchViewStub stub) {
                 mTextView = (TextView) stub.findViewById(R.id.text);
                 keywordView = (TextView) stub.findViewById(R.id.keywordView);
+                pageCounter = (TextView) stub.findViewById(R.id.slideCountView);
                 background = (FrameLayout) stub.findViewById(R.id.background);
                 mCountdownView = (TextView) stub.findViewById(R.id.countdownView);
                 fullFrame = (FrameLayout) stub.findViewById(R.id.fullFrame);
@@ -120,28 +127,39 @@ public class step_1 extends Activity{
                 actualpage      = 0;
 
                 //page1
-                keywords.add(new Keyword(2, "BlaBla"));
-                keywords.add(new Keyword(5,"mnana"));
+                keywords.add(new Keyword(10, "Helper"));
+                keywords.add(new Keyword(10, "One Device"));
+                keywords.add(new Keyword(10, "Functionalities"));
+                keywords.add(new Keyword(15, "Everybody"));
+                pages.add(new Page(keywords));
+                //page2
+                keywords = new ArrayList<Keyword>() ;
+                keywords.add(new Keyword(10, "Presentation"));
+                keywords.add(new Keyword(10, "Bluetooth"));
+                keywords.add(new Keyword(15, "IP Adress"));
                 pages.add(new Page(keywords));
 
                 //page2
                 keywords = new ArrayList<Keyword>() ;
-                keywords.add(new Keyword(10, "1.1"));
-                keywords.add(new Keyword(2, "1.2"));
-                keywords.add(new Keyword(10, "1.3"));
-                keywords.add(new Keyword(10, "1.4"));
+                keywords.add(new Keyword(60, "SWIIPE :)"));
                 pages.add(new Page(keywords));
+
                 //page2
                 keywords = new ArrayList<Keyword>() ;
-                keywords.add(new Keyword(10, "2.1"));
-                keywords.add(new Keyword(2, "2.2"));
-                keywords.add(new Keyword(10, "2.3"));
-                keywords.add(new Keyword(10, "2.4"));
+                keywords.add(new Keyword(10, "SWIIPE :)"));
                 pages.add(new Page(keywords));
+
+                //page2
+                keywords = new ArrayList<Keyword>() ;
+                keywords.add(new Keyword(10, "SWIIPE :)"));
+                pages.add(new Page(keywords));
+
+
 
                 keywords = pages.get(actualpage).getPage();
                 c = keywords.get(actualkeyword);
                 keywordView.setText(c.getKeyword());
+                pageCounter.setText((actualpage + 1) + "/" + pages.size());
                 ct = (float) (280.0 / c.getSeconds());
                 mCountdownView.setText(c.toString());
                 mHandler.postDelayed(countdown, 1000);
@@ -149,3 +167,4 @@ public class step_1 extends Activity{
         });
     }
 }
+
