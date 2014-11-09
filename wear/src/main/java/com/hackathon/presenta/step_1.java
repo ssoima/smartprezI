@@ -83,7 +83,6 @@ public class step_1 extends Activity{
                         Intent k = new Intent(step_1.this, FinalScreen.class);
                         startActivity(k);
                     }
-                }
         }
     };
 
