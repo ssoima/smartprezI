@@ -7,12 +7,18 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.support.wearable.view.WatchViewStub;
 import android.view.WindowManager;
+import android.view.GestureDetector;
+import android.view.MotionEvent;
+import android.view.View;
+import android.widget.Button;
 import android.widget.FrameLayout;
 import android.widget.TextView;
 
 import java.util.ArrayList;
 
-public class step_1 extends Activity {
+import static com.hackathon.presenta.R.id.readybutton;
+
+public class step_1 extends Activity{
 
     private TextView keywordView;
     private TextView mTextView;
@@ -27,12 +33,26 @@ public class step_1 extends Activity {
     private int actualkeyword;
     private float ct;
     private float timeOver;
+    private int actualpage;
+    private ArrayList<Page> pages;
+    private Button nextpage;
+    private boolean changePage;
 
 
 
     private Runnable countdown = new Runnable() {
         @Override
         public void run() {
+            if (changePage) {
+                actualpage++;
+                actualkeyword=0;
+                keywords = pages.get(actualpage).getPage();
+                c = keywords.get(actualkeyword);
+                keywordView.setText(c.getKeyword());
+                ct=280/c.getSeconds();
+                changePage=false;
+            }
+
             if(c.getSeconds() > 0) {
                 c.timeElapse();
                 timeOver = (ct * c.getSeconds() / (float) frameWidth) * 100;
@@ -82,16 +102,46 @@ public class step_1 extends Activity {
                 background = (FrameLayout) stub.findViewById(R.id.background);
                 mCountdownView = (TextView) stub.findViewById(R.id.countdownView);
                 fullFrame = (FrameLayout) stub.findViewById(R.id.fullFrame);
+                nextpage = (Button) stub.findViewById(readybutton);
+                nextpage.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        changePage= true;
+                    }
+                });
+
                 frameWidth = 280;  //fu.getWidth();
+
+                changePage = false;
                 keywords = new ArrayList<Keyword>() ;
 
+                pages = new ArrayList<Page>();
 
-                // Add the keywords
-                actualkeyword = 0;
-                keywords.add(new Keyword(10,"BlaBla"));
+                // Add pages
+                actualkeyword   = 0;
+                actualpage      = 0;
+
+                //page1
+                keywords.add(new Keyword(2, "BlaBla"));
                 keywords.add(new Keyword(5,"mnana"));
+                pages.add(new Page(keywords));
 
+                //page2
+                keywords = new ArrayList<Keyword>() ;
+                keywords.add(new Keyword(10, "1.1"));
+                keywords.add(new Keyword(2, "1.2"));
+                keywords.add(new Keyword(10, "1.3"));
+                keywords.add(new Keyword(10, "1.4"));
+                pages.add(new Page(keywords));
+                //page2
+                keywords = new ArrayList<Keyword>() ;
+                keywords.add(new Keyword(10, "2.1"));
+                keywords.add(new Keyword(2, "2.2"));
+                keywords.add(new Keyword(10, "2.3"));
+                keywords.add(new Keyword(10, "2.4"));
+                pages.add(new Page(keywords));
 
+                keywords = pages.get(actualpage).getPage();
                 c = keywords.get(actualkeyword);
                 keywordView.setText(c.getKeyword());
                 ct = (float) (280.0 / c.getSeconds());
