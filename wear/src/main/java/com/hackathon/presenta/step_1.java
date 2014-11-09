@@ -79,12 +79,11 @@ public class step_1 extends Activity{
                     mHandler.postDelayed(countdown, 1000);
                     background.setMinimumWidth((int) (frameWidth - ct*c.getSeconds()));
                 } else {
-
-                    Intent k = new Intent(step_1.this, FinalScreen.class);
-                    startActivity(k);
+                    if(actualpage == pages.size()-1) {
+                        Intent k = new Intent(step_1.this, FinalScreen.class);
+                        startActivity(k);
+                    }
                 }
-
-
         }
     };
 
